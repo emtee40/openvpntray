@@ -11,8 +11,9 @@ namespace RunTray
     {
         static void Main(string[] args)
         {
-            // Start in background :-)
-            Process.Start("OpenVPNTray.exe");
+            // Start in background, if not running :-)
+            if (Process.GetProcessesByName("OpenVPNTray").Length == 0)
+                Process.Start("OpenVPNTray.exe");
         }
     }
 }
